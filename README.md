@@ -17,6 +17,7 @@ Realizar a implementação dos 3 desafios propostos utilizando em seu código so
 * O nome da classe que implementa esta Interface deve ser `MyFindArray` sob o pacote `br.com.projuris`.
 
 Exemplo de Testes:
+
 Dado os arrays `[4,9,3,7,8]` e `[3,7]` deve retornar `2`.
 Dado os arrays `[1,3,5]` e `[1]` deve retornar `0`.
 Dado os arrays `[7,8,9]` e `[8,9,10]` deve retornar `-1`.
@@ -28,6 +29,7 @@ Dado os arrays `[4,9,3,7,8,3,7,1]` e `[3,7]` deve retornar `5`.
 * O nome da classe que implementa esta Interface deve ser `MyFindChar` sob o pacote `com.br.projuris`
 
 Exemplo de testes:
+
 Demonstração:
 Dado a String `“stress”`, deve retornar `“t”`.
 Dado a String `“reembolsar”` deve retornar `“m”`.
