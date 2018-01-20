@@ -3,7 +3,7 @@ package br.com.projuris;
 import static org.junit.Assert.assertEquals;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Before;
@@ -14,34 +14,19 @@ public class MyCalculoTest {
 	
 	@Before
 	public void prepare() {
-		listaFuncionario = new ArrayList<Funcionario>();
-		final Funcionario funcionario1 = new Funcionario("Assistente", "Administrativo", new BigDecimal("1000.0"));
-		final Funcionario funcionario2 = new Funcionario("Gerente", "Administrativo", new BigDecimal("7000.70"));
-		final Funcionario funcionario3 = new Funcionario("Diretor", "Administrativo", new BigDecimal("10000.45"));
-		final Funcionario funcionario4 = new Funcionario("Assistente", "Financeiro", new BigDecimal("1300.9"));
-		final Funcionario funcionario5 = new Funcionario("Gerente", "Financeiro", new BigDecimal("7500"));
-		final Funcionario funcionario6 = new Funcionario("Diretor", "Financeiro", new BigDecimal("11000.0"));
-		final Funcionario funcionario7 = new Funcionario("Estagiário", "Jurídico", new BigDecimal("700.4"));
-		final Funcionario funcionario8 = new Funcionario("Assistente", "Jurídico", new BigDecimal("1800.90"));
-		final Funcionario funcionario9 = new Funcionario("Gerente", "Jurídico", new BigDecimal("9500.50"));
-		final Funcionario funcionario10 = new Funcionario("Diretor", "Jurídico", new BigDecimal("13000.0"));
-
-		listaFuncionario.add(funcionario1);
-		listaFuncionario.add(funcionario2);
-		listaFuncionario.add(funcionario3);
-		listaFuncionario.add(funcionario4);
-		listaFuncionario.add(funcionario5);
-		listaFuncionario.add(funcionario6);
-		listaFuncionario.add(funcionario7);
-		listaFuncionario.add(funcionario8);
-		listaFuncionario.add(funcionario9);
-		listaFuncionario.add(funcionario10);
-
+		listaFuncionario = Arrays.asList(new Funcionario("Assistente", "Administrativo", new BigDecimal("1000.0")),
+				new Funcionario("Gerente", "Administrativo", new BigDecimal("7000.70")),
+				new Funcionario("Diretor", "Administrativo", new BigDecimal("10000.45")),
+				new Funcionario("Assistente", "Financeiro", new BigDecimal("1300.9")),
+				new Funcionario("Gerente", "Financeiro", new BigDecimal("7500")), new Funcionario("Diretor", "Financeiro", new BigDecimal("11000.0")),
+				new Funcionario("Estagiário", "Jurídico", new BigDecimal("700.4")),
+				new Funcionario("Assistente", "Jurídico", new BigDecimal("1800.90")),
+				new Funcionario("Gerente", "Jurídico", new BigDecimal("9500.50")), new Funcionario("Diretor", "Jurídico", new BigDecimal("13000.0")));
+		
 	}
 
 	@Test
 	public void testCustoPorCargo() throws Exception {
-		
 		final MyCalculo calculo = new MyCalculo();
 		final List<CustoCargo> custoCargoList = calculo.custoPorCargo(listaFuncionario);
 

@@ -26,7 +26,7 @@ public class MyFindArray implements FindArray {
 				}
 				if (isAMach) {
 					result = firstOccur;
-					if (array.length - (firstOccur + 1 + subArray.length) >= subArray.length) {
+					if (isPossibleToFindAnotherMatch(array, subArray, firstOccur)) {
 						startFrom = firstOccur + subArray.length;
 					} else {
 						isPossibleToFind = false;
@@ -55,7 +55,11 @@ public class MyFindArray implements FindArray {
 	}
 	
 	private boolean subArrayFitsAfterResult(int[] array, int[] subArray, int firstOccur) {
-		return array.length - (firstOccur) >= subArray.length;
+		return array.length - firstOccur >= subArray.length;
+	}
+	
+	private boolean isPossibleToFindAnotherMatch(int[] array, int[] subArray, final int firstOccur) {
+		return array.length - (firstOccur + 1 + subArray.length) >= subArray.length;
 	}
 	
 }

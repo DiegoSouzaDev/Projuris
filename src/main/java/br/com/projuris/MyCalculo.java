@@ -7,53 +7,53 @@ import java.util.List;
 import java.util.Map;
 
 public class MyCalculo implements Calculo {
-	
+
 	public List<CustoCargo> custoPorCargo(final List<Funcionario> funcionarios) {
 		final Map<String, CustoCargo> map = new HashMap<String, CustoCargo>();
-		
+
 		for (final Funcionario funcionario : funcionarios) {
 			CustoCargo custoCargo = map.get(funcionario.getCargo());
-			
+
 			if (custoCargo == null) {
 				custoCargo = new CustoCargo();
 				custoCargo.setCargo(funcionario.getCargo());
 				custoCargo.setCusto(funcionario.getSalario());
 			} else {
-				final BigDecimal newCost = calculatedNewCostByRole(funcionario, custoCargo);
-				custoCargo.setCusto(newCost);
+				final BigDecimal novoCusto = calculaNovoCustoPorCargo(funcionario, custoCargo);
+				custoCargo.setCusto(novoCusto);
 			}
 			map.put(funcionario.getCargo(), custoCargo);
 		}
 
 		return new ArrayList<CustoCargo>(map.values());
 	}
-
+	
 	public List<CustoDepartamento> custoPorDepartamento(final List<Funcionario> funcionarios) {
 		final Map<String, CustoDepartamento> map = new HashMap<String, CustoDepartamento>();
-		
+
 		for (final Funcionario funcionario : funcionarios) {
 			CustoDepartamento custoDepartamento = map.get(funcionario.getDepartamento());
-
+			
 			if (custoDepartamento == null) {
 				custoDepartamento = new CustoDepartamento();
 				custoDepartamento.setDepartamento(funcionario.getDepartamento());
 				custoDepartamento.setCusto(funcionario.getSalario());
 			} else {
-				final BigDecimal newCost = calculateNewCostByDepartment(funcionario, custoDepartamento);
-				custoDepartamento.setCusto(newCost);
+				final BigDecimal novoCusto = calculaNovoCustoPorDepartmento(funcionario, custoDepartamento);
+				custoDepartamento.setCusto(novoCusto);
 			}
 			map.put(funcionario.getDepartamento(), custoDepartamento);
 		}
-
+		
 		return new ArrayList<CustoDepartamento>(map.values());
 	}
-	
-	private BigDecimal calculatedNewCostByRole(final Funcionario funcionario, final CustoCargo custoCargo) {
+
+	private BigDecimal calculaNovoCustoPorCargo(final Funcionario funcionario, final CustoCargo custoCargo) {
 		return custoCargo.getCusto().add(funcionario.getSalario());
 	}
-
-	private BigDecimal calculateNewCostByDepartment(Funcionario funcionario, CustoDepartamento custoDepartamento) {
+	
+	private BigDecimal calculaNovoCustoPorDepartmento(Funcionario funcionario, CustoDepartamento custoDepartamento) {
 		return custoDepartamento.getCusto().add(funcionario.getSalario());
 	}
-	
+
 }
