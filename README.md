@@ -74,9 +74,6 @@ Exemplo de Lista de Funcionários:
 
 		
 
-
-## Teste e Execução da aplicação.
-
 ### EXECUTANDO OS TESTES
 Para que os testes sejam executados, basta acessar a pasta raiz do projeto, abrir o CMD e executar o comando `mvn test`.
 Feito isso, o maven baixará as dependencias e executará os testes.
