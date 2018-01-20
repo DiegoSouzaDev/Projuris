@@ -19,8 +19,11 @@ Realizar a implementação dos 3 desafios propostos utilizando em seu código so
 Exemplo de Testes:
 
 Dado os arrays `[4,9,3,7,8]` e `[3,7]` deve retornar `2`.
+
 Dado os arrays `[1,3,5]` e `[1]` deve retornar `0`.
+
 Dado os arrays `[7,8,9]` e `[8,9,10]` deve retornar `-1`.
+
 Dado os arrays `[4,9,3,7,8,3,7,1]` e `[3,7]` deve retornar `5`.
  
 **2º desafio:**
@@ -30,9 +33,11 @@ Dado os arrays `[4,9,3,7,8,3,7,1]` e `[3,7]` deve retornar `5`.
 
 Exemplo de testes:
 
-Demonstração:
+
 Dado a String `“stress”`, deve retornar `“t”`.
+
 Dado a String `“reembolsar”` deve retornar `“m”`.
+
 Caso não exista nenhuma letra não repetida na String, deve retornar `‘ ’` (espaço em branco).
  
 **3º desafio:**
@@ -75,7 +80,9 @@ Exemplo de Lista de Funcionários:
 		
 
 ### EXECUTANDO OS TESTES
+
 Para que os testes sejam executados, basta acessar a pasta raiz do projeto, abrir o CMD e executar o comando `mvn test`.
+
 Feito isso, o maven baixará as dependencias e executará os testes.
 
 Outra opção é executar os testes pela IDE, executando-os com jUnit (`Run As` -> `jUnit test`).
