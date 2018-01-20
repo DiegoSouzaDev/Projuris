@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/DiegoSouzaDev/Robots/branch/master/graph/badge.svg)](https://codecov.io/gh/DiegoSouzaDev/Robots)
+[![codecov](https://codecov.io/gh/DiegoSouzaDev/Projuris/branch/master/graph/badge.svg)](https://codecov.io/gh/DiegoSouzaDev/Projuris)
 
 # Projuris
 A resolução dos desafios foram implementadas com Java 8, para os testes foi utilizado o JUnit e para gerenciar a build foi utilizado o Maven.
