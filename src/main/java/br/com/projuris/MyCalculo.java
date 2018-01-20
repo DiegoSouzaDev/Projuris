@@ -13,6 +13,7 @@ public class MyCalculo implements Calculo {
 		
 		for (final Funcionario funcionario : funcionarios) {
 			CustoCargo custoCargo = map.get(funcionario.getCargo());
+			
 			if (custoCargo == null) {
 				custoCargo = new CustoCargo();
 				custoCargo.setCargo(funcionario.getCargo());
@@ -25,15 +26,34 @@ public class MyCalculo implements Calculo {
 		}
 
 		return new ArrayList<CustoCargo>(map.values());
-		
 	}
 
+	public List<CustoDepartamento> custoPorDepartamento(final List<Funcionario> funcionarios) {
+		final Map<String, CustoDepartamento> map = new HashMap<String, CustoDepartamento>();
+		
+		for (final Funcionario funcionario : funcionarios) {
+			CustoDepartamento custoDepartamento = map.get(funcionario.getDepartamento());
+
+			if (custoDepartamento == null) {
+				custoDepartamento = new CustoDepartamento();
+				custoDepartamento.setDepartamento(funcionario.getDepartamento());
+				custoDepartamento.setCusto(funcionario.getSalario());
+			} else {
+				final BigDecimal newCost = calculateNewCostByDepartment(funcionario, custoDepartamento);
+				custoDepartamento.setCusto(newCost);
+			}
+			map.put(funcionario.getDepartamento(), custoDepartamento);
+		}
+
+		return new ArrayList<CustoDepartamento>(map.values());
+	}
+	
 	private BigDecimal calculatedNewCostByRole(final Funcionario funcionario, final CustoCargo custoCargo) {
 		return custoCargo.getCusto().add(funcionario.getSalario());
 	}
-	
-	public List<CustoDepartamento> custoPorDepartamento(final List<Funcionario> funcionarios) {
-		return null;
+
+	private BigDecimal calculateNewCostByDepartment(Funcionario funcionario, CustoDepartamento custoDepartamento) {
+		return custoDepartamento.getCusto().add(funcionario.getSalario());
 	}
 	
 }
